@@ -544,9 +544,10 @@ func (c *Context) buildInstrumentedBinary(blocks *[]CoverBlock, sonar *[]CoverBl
 func (c *Context) calcIgnore() {
 	// No reason to instrument these.
 	c.ignore = map[string]bool{
-		"runtime/cgo":   true,
-		"runtime/pprof": true,
-		"runtime/race":  true,
+		"runtime/cgo":           true,
+		"runtime/pprof":         true,
+		"runtime/race":          true,
+		"golang.org/x/exp/rand": true,
 	}
 
 	// Roots: must not instrument these, nor any of their dependencies, to avoid import cycles.
